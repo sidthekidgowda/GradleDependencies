@@ -1,6 +1,10 @@
     apply plugin: 'kotlin-kapt'
     
     dependencies {
+        def dagger_version = "2.25.2"
+        def androidx_version = "1.1.0"
+        def room_version = "2.2.3"
+    
         implementation fileTree(dir: 'libs', include: ['*.jar'])
         implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
         implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -9,17 +13,21 @@
         implementation "androidx.recyclerview:recyclerview:1.1.0"
 
         //dagger
-        implementation 'com.google.dagger:dagger:2.23.1'
-        implementation "com.google.dagger:dagger-android-support:2.23.1"
-        annotationProcessor 'com.google.dagger:dagger-compiler:2.23.1'
-        kapt 'com.google.dagger:dagger-compiler:2.23.1'
-        kapt 'com.google.dagger:dagger-android-processor:2.23.1'
+        implementation "com.google.dagger:dagger:$dagger_version"
+        kapt "com.google.dagger:dagger-compiler:$dagger_version"
+        
+        //for java annotationProcessor 'com.google.dagger:dagger-compiler:2.23.1'
+        //deprecated implementation "com.google.dagger:dagger-android-support:2.23.1"
+        //deprecated kapt 'com.google.dagger:dagger-android-processor:2.23.1'
 
         //retrofit
         implementation 'com.squareup.retrofit2:retrofit:2.5.0'
 
         //guava
         api 'com.google.guava:guava:27.0.1-android'
+        
+        //RxJava
+        implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
 
         //room
         implementation 'android.arch.persistence.room:runtime:1.1.1'
@@ -32,7 +40,7 @@
         testImplementation 'org.robolectric:robolectric:3.8'
         testImplementation 'org.robolectric:shadows-multidex:3.8'
         testImplementation 'org.robolectric:shadows-supportv4:3.8'
-        testImplementation 'android.arch.persistence.room:testing:1.1.1'
+        testImplementation "androidx.room:room-testing:$room_version"
 
         //test-espresso
         testImplementation 'junit:junit:4.12'
