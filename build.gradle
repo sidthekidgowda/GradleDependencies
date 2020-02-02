@@ -30,10 +30,11 @@
         implementation 'io.reactivex.rxjava2:rxjava:2.2.0'
 
         //room
-        implementation 'android.arch.persistence.room:runtime:1.1.1'
-        annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
-        implementation 'android.arch.persistence.room:rxjava2:1.1.1'
-        implementation 'android.arch.persistence.room:guava:1.1.1'
+        implementation "androidx.room:room-runtime:$room_version"
+        annotationProcessor "androidx.room:room-compiler:$room_version"
+        implementation "androidx.room:room-ktx:$room_version"
+        implementation "androidx.room:room-rxjava2:$room_version"
+        implementation "androidx.room:room-guava:$room_version"
 
         //testing-Mockito/Robolectric/Room
         testImplementation 'org.mockito:mockito-core:2.23.4'
